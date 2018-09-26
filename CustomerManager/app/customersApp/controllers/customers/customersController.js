@@ -13,15 +13,6 @@
             vm.listDisplayModeEnabled = true;
         }
 
-        // modalService.showModal({}, '').then(function (result) {
-        //     if (result === 'ok') {
-        //         dataService.deleteCustomer(vm.customer.id).then(function () {
-        //             onRouteChangeOff(); //Stop listening for location changes
-        //             $location.path('/customers');
-        //         }, processError);
-        //     }
-        // });
-
         vm.customers = [];
         vm.filteredCustomers = [];
         vm.filteredCount = 0;
