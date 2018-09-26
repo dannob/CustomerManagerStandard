@@ -1,12 +1,26 @@
 ﻿(function () {
 
     var injectParams = ['$location', '$filter', '$window',
-                        '$timeout', 'authService', 'dataService', 'modalService'];
+                        '$timeout', 'authService', 'dataService', 'modalService', 'optimizelyService'];
 
     var CustomersController = function ($location, $filter, $window,
-        $timeout, authService, dataService, modalService) {
+        $timeout, authService, dataService, modalService,optimizelyService) {
 
         var vm = this;
+
+        optimizelyService.activateExperiment('Experiment2');
+        if (optimizelyService.isVariationActive('Experiment2','ListView')) {
+            vm.listDisplayModeEnabled = true;
+        }
+
+        // modalService.showModal({}, '').then(function (result) {
+        //     if (result === 'ok') {
+        //         dataService.deleteCustomer(vm.customer.id).then(function () {
+        //             onRouteChangeOff(); //Stop listening for location changes
+        //             $location.path('/customers');
+        //         }, processError);
+        //     }
+        // });
 
         vm.customers = [];
         vm.filteredCustomers = [];
